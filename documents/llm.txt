@@ -1,0 +1,5 @@
+A Large Language Model, or LLM, is a machine learning model trained on large amounts of text data.
+
+LLMs can perform tasks such as answering questions, summarizing text, generating content, translating languages, and writing code.
+
+An LLM generates responses based on patterns learned during training and the context provided in the input.

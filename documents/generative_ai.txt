@@ -1,0 +1,5 @@
+Generative AI refers to artificial intelligence systems that can generate new content based on patterns learned from existing data.
+
+Generative AI can produce text, images, audio, video, and computer code.
+
+Large Language Models are an important type of Generative AI system focused primarily on understanding and generating language.

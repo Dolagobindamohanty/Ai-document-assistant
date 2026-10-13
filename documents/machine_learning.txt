@@ -1,0 +1,5 @@
+Machine Learning is a subset of Artificial Intelligence where computers learn patterns from data instead of being explicitly programmed for every task.
+
+Machine Learning models can use historical data to make predictions or decisions.
+
+Common types of Machine Learning include supervised learning, unsupervised learning, and reinforcement learning.

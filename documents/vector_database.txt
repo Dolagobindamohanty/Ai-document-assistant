@@ -1,0 +1,5 @@
+A vector database stores vector representations of data and provides methods for finding vectors that are similar to a query vector.
+
+Vector databases are commonly used for semantic search, recommendation systems, and RAG applications.
+
+A RAG system can use a vector database to retrieve documents that are semantically related to a user's question.

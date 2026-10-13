@@ -1,0 +1,19 @@
+# ==============================================================================
+# AI Document Assistant - Pinned Dependencies
+# ==============================================================================
+streamlit==1.65.0
+pypdf==6.20.1
+langchain==1.4.0
+langchain-core==1.6.3
+langchain-community==0.4.2
+langchain-text-splitters==1.1.2
+langchain-huggingface==1.2.2
+sentence-transformers==6.0.1
+faiss-cpu==1.15.0
+google-genai==2.24.0
+python-dotenv==1.2.3
+torch==2.14.0
+scikit-learn==1.9.1
+numpy==2.5.3
+pydantic==2.13.5
+pytest==9.1.1

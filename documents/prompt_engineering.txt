@@ -1,0 +1,5 @@
+Prompt Engineering is the practice of designing instructions that guide a language model toward producing a desired response.
+
+A prompt can contain instructions, context, examples, constraints, and a user question.
+
+In a RAG system, prompt engineering can be used to instruct the LLM to answer questions using retrieved context and avoid using unsupported information.

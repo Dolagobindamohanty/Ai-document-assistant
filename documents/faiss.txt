@@ -1,0 +1,7 @@
+FAISS stands for Facebook AI Similarity Search.
+
+FAISS is a library designed for efficient similarity search and clustering of dense vectors.
+
+In a RAG system, FAISS can store document embeddings and search for document vectors that are most similar to a user's query.
+
+FAISS is commonly used when building local vector search systems.

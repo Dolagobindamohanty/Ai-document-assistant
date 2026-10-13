@@ -1,0 +1,5 @@
+Artificial Intelligence is a field of computer science focused on creating systems that can perform tasks that normally require human intelligence.
+
+AI systems can perform tasks such as understanding language, recognizing patterns, making decisions, solving problems, and analyzing information.
+
+Machine Learning is one of the major approaches used to build Artificial Intelligence systems.

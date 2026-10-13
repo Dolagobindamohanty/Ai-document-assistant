@@ -1,0 +1,7 @@
+Embeddings are numerical representations of text, images, or other data.
+
+Text embeddings represent the semantic meaning of text as vectors containing numerical values.
+
+Texts with similar meanings can have vectors that are close to each other in vector space.
+
+Embeddings are commonly used in semantic search and Retrieval Augmented Generation systems.

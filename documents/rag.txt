@@ -1,0 +1,7 @@
+Retrieval Augmented Generation, commonly called RAG, combines information retrieval with a Large Language Model.
+
+A RAG system first searches a knowledge base for information relevant to the user's question.
+
+The retrieved information is then provided as context to the LLM, which uses that context to generate an answer.
+
+RAG can help an application answer questions using information from a private or specialized knowledge base.

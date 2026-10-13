@@ -1,0 +1,32 @@
+# Environment and secrets
+.env
+.env.local
+.streamlit/secrets.toml
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE files
+.idea/
+.vscode/
+.agents/
+*.swp
+*.swo
+
+# Temporary directories and logs
+*.log
+scratch/
+tests/fixtures/generated_*
+faiss_db_temp/
+temp_uploads/
