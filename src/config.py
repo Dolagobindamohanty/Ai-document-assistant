@@ -9,10 +9,10 @@ load_dotenv()
 class AppConfig:
     # 1. API Configuration
     GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
-    GEMINI_PRIMARY_MODEL: str = os.getenv("GEMINI_PRIMARY_MODEL", "gemini-3.8-flash")
+    GEMINI_PRIMARY_MODEL: str = os.getenv("GEMINI_PRIMARY_MODEL", "gemini-3.5-flash-lite")
     
     # Fallback models parsed from comma-separated string
-    _fallbacks = os.getenv("GEMINI_FALLBACK_MODELS", "gemini-3.6-flash,gemini-3.5-flash-lite")
+    _fallbacks = os.getenv("GEMINI_FALLBACK_MODELS", "gemini-3-flash-preview,gemini-3.1-flash-lite,gemini-3.8-flash,gemini-3.6-flash")
     GEMINI_FALLBACK_MODELS: list[str] = [m.strip() for m in _fallbacks.split(",") if m.strip()]
 
     # 2. Embedding & Indexing

@@ -1,0 +1,7 @@
+[server]
+# Disable deep module source inspection to prevent optional-import warnings in transformers
+fileWatcherType = "none"
+headless = true
+
+[client]
+showErrorDetails = true

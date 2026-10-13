@@ -65,7 +65,7 @@ def test_llm_t02_fallback_when_primary_exhausted(monkeypatch):
 
 
 def test_llm_t03_quota_429_fails_fast(monkeypatch):
-    """LLM-T03: Quota 429 raises QuotaExhaustedError immediately without retrying all models."""
+    """LLM-T03: Quota 429 raises QuotaExhaustedError without retrying the exhausted model."""
     mock_client = MagicMock()
     mock_client.models.generate_content.side_effect = Exception("429 Resource has been exhausted (quota exceeded)")
 
@@ -75,11 +75,33 @@ def test_llm_t03_quota_429_fails_fast(monkeypatch):
         generate_answer(
             prompt="Hello",
             client=mock_client,
-            models=["gemini-3.8-flash", "gemini-3.6-flash"],
+            models=["gemini-3.8-flash"],
         )
 
-    # Should only call once, no retrying or trying second model
+    # Should only call once, no retrying the exhausted model
     assert mock_client.models.generate_content.call_count == 1
+
+
+def test_llm_t03b_quota_fallback_to_second_model(monkeypatch):
+    """LLM-T03b: If model A has exhausted per-model quota, model B with remaining quota succeeds."""
+    mock_client = MagicMock()
+    mock_client.models.generate_content.side_effect = [
+        Exception("429 Resource has been exhausted (quota exceeded)"),
+        MockGenAIResponse("Answer from fallback model with remaining quota"),
+    ]
+
+    monkeypatch.setattr("time.sleep", lambda s: None)
+
+    answer, model = generate_answer(
+        prompt="Hello",
+        client=mock_client,
+        models=["gemini-3.8-flash", "gemini-3.5-flash-lite"],
+        return_model=True,
+    )
+
+    assert answer == "Answer from fallback model with remaining quota"
+    assert model == "gemini-3.5-flash-lite"
+    assert mock_client.models.generate_content.call_count == 2
 
 
 def test_llm_t04_auth_fails_fast(monkeypatch):

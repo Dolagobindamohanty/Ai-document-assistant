@@ -74,10 +74,15 @@ def generate_answer(
                 classified = classify_gemini_error(exc, secret_to_redact=config.GEMINI_API_KEY)
                 last_classified_error = classified
 
-                # If quota exhausted or authentication failed, do NOT retry or burn other models
-                if isinstance(classified, (QuotaExhaustedError, AuthenticationError)):
+                # If authentication failed, do NOT retry or burn other models
+                if isinstance(classified, AuthenticationError):
                     print(f"[LLM] Non-retryable error ({classified.__class__.__name__}): {classified.user_message}")
                     raise classified from exc
+
+                # If quota exhausted on this model, try next model (free-tier quotas are per-model)
+                if isinstance(classified, QuotaExhaustedError):
+                    print(f"[LLM] Model '{model}' quota reached. Trying next fallback model...")
+                    break
 
                 # If model not found, try next model in fallback list immediately
                 if isinstance(classified, ModelNotFoundError):
